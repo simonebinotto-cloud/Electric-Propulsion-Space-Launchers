@@ -1,0 +1,79 @@
+\section{Pulsed Plasma Thrusters}
+
+\subsection{Introduction}
+The Pulsed Plasma Thruster (PPT) is an electric propulsion device used since 1964 with FalconSAT. Its ease of implementation (in terms of cost and physical concept) and its low thrust explain its popularity in spacecraft applications (trajectory correction) [1]. Its working principle is as follows: a capacitor discharges and generates an electric arc that ionizes part of the propellant (often Teflon). The ionized propellant creates a plasma bridge between two electrodes, thus closing the circuit. This current then generates a magnetic field which, through the Lorentz force, accelerates the plasma bulk to velocities of several km/s, thereby producing thrust. This cycle is repeated thousands of times per second, generating a quasi-continuous thrust. (\cite{Shaw_2011} p106-108)
+
+\subsection{Electrical Model}
+
+The PPT can be modeled as a series RLC circuit powered by a capacitor. Using Kirchhoff’s and Lenz’s laws, we obtain the following equation which depends on Initial discharge voltage of the capacitor $V_0$, the circuit inductance $L = L_{electrodes} + L_{plasma} + L_{capacitor}$ and resistance $R = R_{electrodes} + R_{plasma} + R_{capacitor}$ the capacitance $C$ and teh circuit current $I(t)$: \cite{Shaw_2011} p107
+
+
+\begin{figure}[H]
+   \centering
+   \includegraphics[width=0.8\linewidth]{ppt_circuit_elec.png}
+   \caption{Electrical schematic of a PPT  \cite{Shaw_2011} p106}
+   \label{ppt_circuit}
+\end{figure}
+
+
+\begin{equation}
+V_0 = L \frac{dI}{dt} + RI + \frac{1}{C} \int I\, dt + I\frac{dL}{dt},
+\end{equation}
+
+It can be shown using Thomson's theorem that $L_{plasma}$ is negligible \cite{Shaw_2011} p107, and that both $L_{electrodes}$ and $R_{electrodes}$ are small compared to $L_{capacitor}$ and $R_{capacitor}$ \cite{Shaw_2011} p113.
+
+\subsection{Plasma Model}
+
+The plasma is composed of two main regions: the bulk, where the plasma is globally neutral, and the sheath, where positive ions are predominant. As the electric field varies rapidly, electrons are accelerated faster than ions due to their lower mass. It can be shown that the thickness of this region depends on the wall potential $\Phi_{\text{wall}}$, the elementary charge $e$, the vacuum permittivity $ \varepsilon_0$ and the ion density $N_i$ according to \cite{Shaw_2011} p125:
+
+\begin{equation}
+d_{\text{sheath}} = \sqrt{\frac{-\Phi_{\text{wall}} \, 2 \varepsilon_0}{e \, N_i}},
+\end{equation}
+
+and thus, the current in the sheath can written as a function of the mass of the electron $m_e$ and the surface of the anode $S_{\text{anode}}$:
+
+\begin{equation}
+I_{e\text{-sheath}}
+= \frac{4 \varepsilon_0}{9}
+\left(\frac{2e}{m_e}\right)^{1/2}
+\frac{\Phi_{\text{wall}}^2}{d_{\text{sheath}}} S_{\text{anode}}.
+\end{equation}
+
+Using a magnetohydrodynamics model, $N_i$ can be determined, while the lumped circuit model provides $\Phi_{\text{wall}}$.
+\\[0.5cm]
+
+It can be shown that the flow resistance is negligible compared to that of the sheath. Moreover, if the plasma potential is not too high, the potential of the sheath is approximately equal to the potential of the wall : $V_{\text{sheath}} \simeq \Phi_{\text{wall}}$ \cite{Shaw_2011} p125, and:
+
+\begin{equation}
+R_{\text{plasma}} \simeq R_{\text{sheath}} = \frac{V_{\text{sheath}}}{I_{e\text{-sheath}}}.
+\end{equation}
+
+\subsection{Equation of Motion}
+
+Using Newton’s second law, the electromagnetic force applied to the plasma flow can be approximated for a rectangular circuit as a function of the width of the electrode $\omega$, the rate of ion erosion $\Gamma_i$, the magnetic permeability of the vacuum $\mu_0$, the current density $J$, the magnetic field $B$ and the distance between the two electrodes $h$  \cite{Shaw_2011} p127 \cite{Grand_2021} p17:
+
+\begin{equation}
+\Gamma_i I \frac{dx}{dt} + \Gamma_i \frac{d^2 x}{dt^2} \int_0^t I \, dt = \int_V (J \times B) \, dV=\frac{h\mu_0}{2\omega}I^2=\frac{1}{2}L'I^2.
+\end{equation}
+
+\subsection{Performance}
+
+The efficiency of a PPT measures its ability to convert the energy stored in the capacitor into kinetic energy (plasma acceleration). It can be written as a function of the mass of plasma expelled per pulse $m$, the impulse bit (impulse per discharge) $I_{bit}$ and the exhaust velocity $u_e$ \cite{Shaw_2011} p143:
+
+\begin{equation}
+\eta = \frac{E_{\text{kinetic}}}{E_{\text{elec}}}
+= \frac{\frac{1}{2} m u_e^2}{\frac{1}{2} C V_0^2}
+= \frac{I_{bit}}{C V_0}.
+\end{equation}
+
+
+In practical cases, the efficiency is on the order of 10\%. This low value is due to the fact that not all the propellant affected by the electric arc is ionized \cite{Shaw_2011} p145. Moreover, the current in the circuit can be very high (greater than 1 kA), leading to significant Joule losses according to $P = R I^2$.
+\\[0.4cm]
+
+The specific impulse of a PPT, $I_{sp} = \frac{u_e}{g_0}$, typically ranges between 250 s and 1400 s \cite{Shaw_2011} p12, depending on the stored energy. This is higher than chemical propulsion but lower than other electric propulsion systems.
+\\[0.4cm]
+
+The thrust produced by a PPT is very low (on the order of $\mu N$). For instance, early systems produced around 2 mN with an $I_{sp}$ of 410 s, while more recent systems can reach about $297 \mu N$ with an $I_{sp}$ of 1000 s \cite{Grand_2021} p3.
+\\[0.4cm]
+
+One of the main drawbacks of this system is electrode erosion caused by high current densities. For a PPT mounted on a CubeSat, this erosion is on the order of $\mu g$ per discharge \cite{Shaw_2011} p21 (depending on electrode length).

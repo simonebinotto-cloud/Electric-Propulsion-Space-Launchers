@@ -1,0 +1,6 @@
+#This is a comment and under is an empty line
+
+deltav: 15
+payload_mass: 10
+burn_time: 1300
+min_thrust: 30

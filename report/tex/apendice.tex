@@ -1,0 +1,28 @@
+\section*{Appendices}
+\addcontentsline{toc}{section}{\emph{Appendices}}
+
+\section{Contributions}
+
+\begin{table}[H]
+\centering
+\caption{Individual contributions of each authors}
+\label{tab:contributions}
+\begin{tabular}{@{}lll@{}}
+\toprule
+\textbf{Name} & \textbf{Implication} & \textbf{Main contributions} \\ \midrule
+Simone Binotto & 95 & Resistojets, Electrothermal thrusters\\
+Marco Azevedo & 100 & Arcjets, SW Sensitivity analysis \\
+Philippe Quichaud & 100 & Pulsed plasma thrusters, SW Scaling laws \\
+Corentin Ouisse & 105 & Hall effect thrusters, SW User interface  \\
+Andr\'{e} Matos & 100 & Ion thrusters, SW Scaling and sweeping \\
+Th\'{e}o Demesy & 95 & Introduction / Conclusion, Review \\ \bottomrule
+\end{tabular}
+\end{table}
+
+\section{Software}
+
+The team developped, in addition to this report, a software written in Python that allows the user to dimension an Ion thruster for a given mission. The user can freely specify mission parameters, as for example desired delta-v and payload mass in a text file, but also more specific parameters relative to precise dimensionning of the motor (minimum thrust, component efficiencies, and so on...).
+
+This text file will then be processed by the program which will return an optimal motor design (optimized for mass) described in an output file. It will also provide a table all possible motor configurations encountered in the search process. Finally, it also conducts a sensibility analysis on a specified design objective (eg mass) relative to all mission parameters so that the user can evaluate the effect of design choices.
+
+For further information relative to the software, please refer to the provided README file that explains in detail usage and features.

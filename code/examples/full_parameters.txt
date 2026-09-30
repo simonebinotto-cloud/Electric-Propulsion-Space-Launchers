@@ -1,0 +1,26 @@
+# Mission
+deltav: 5.0
+payload_mass: 100
+
+# Constraints
+max_power: 3000
+max_duration: 4000
+
+# Propellant (Xenon)
+propellant: 0
+
+# Efficiency assumptions
+eta_m: 0.90
+eta_e: 0.85
+xi: 0.97
+
+# Design sweep
+beam_voltage_min: 800
+beam_voltage_max: 2000
+beam_voltage_step: 100
+beam_current_min: 0.5
+beam_current_max: 3.0
+beam_current_step: 0.25
+
+# Objective: minimise total mass
+objective: 0

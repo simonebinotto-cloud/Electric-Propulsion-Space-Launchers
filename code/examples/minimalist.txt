@@ -1,0 +1,2 @@
+deltav: 5.0
+payload_mass: 100

@@ -1,0 +1,227 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%	LAN\c{C}ADORES ESPACIAIS/SPACE LAUNCHERS, GROUP 5 PROJECT REPORT
+%	INPUTS FOR THE MAIN FILE
+%	AUTHORS: 			SIMONE BINOTTO, MARCO AZEVEDO, PHILIPPE QUICHAUD, CORENTIN OUISSE
+%	AUTHORS:			ANDRE MATOS, THEO DEMESY
+%	INITIAL CODING:		01/3/2025
+%	LAST UPDATE:		12/3/2025
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+\documentclass[3p,preprint,12pt]{elsarticle}	% review, preprint, 5p
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% PACKAGES AND COMMANDS INCLUDED BY AUTHORS
+
+\usepackage{siunitx}                %SI units
+\usepackage{tikz}                   %Figures (Drawings)
+\usepackage{caption}
+\usepackage{subcaption}
+%\usepackage{commath}
+%\usepackage[utf8]{inputenc}
+\usepackage{float}                  %To use H and force flots "here"
+\usepackage{booktabs}
+\usepackage{url}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage[intlimits]{amsmath}
+
+\usepackage{graphicx}
+\usepackage{color}
+
+\usepackage{natbib}				% para ter as refs no texto para confirma\c{c}\~{a}o
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Def.
+\input{tex/inputs.tex}  % some command definition, see input.tex file
+
+
+\theoremstyle{definition}		% To define the topics style
+\newtheorem{topic}{Topic}		% To define the topics environment
+
+\newcommand{\dd}{\ensuremath{\text{d}}}
+\newcommand{\arcsinh}{\ensuremath{\text{arcsinh}}}
+\newcommand{\arccosh}{\ensuremath{\text{arccosh}}}
+
+\newcommand{\mma}{Mathematica\textsuperscript{\tiny\textregistered}}
+%%% 	defining command for frequent symbols can be advantageous, especially if you think the symbol definition can change; but don't exaggerate; journal don't like it and beware of command definition collisions
+%\newcommand{\mma}{Mathematica\textsuperscript{\tiny\textcopyright}}	
+\newcommand{\matlab}{MATLAB\textsuperscript{\tiny\textregistered}}
+
+\newcommand{\topicsep}{\vspace{0.4cm}}
+
+\biboptions{sort&compress}
+
+%%%%% To Create a Nomenclature
+%\usepackage{framed} % Framing content
+%\usepackage{multicol} % Multiple columns environment
+%\usepackage{nomencl} % Nomenclature package
+%\makenomenclature
+%\setlength{\nomitemsep}{-\parskip} % Baseline skip between items
+%\renewcommand*\nompreamble{\begin{multicols}{2}}
+%\renewcommand*\nompostamble{\end{multicols}}
+%% Group variables according to their symbol type
+%\RequirePackage{ifthen}
+%\renewcommand{\nomgroup}[1]{%
+%    	\ifthenelse{\equal{#1}{A}}{%
+%    		\item[\textbf{Acronyms}]}{%
+%      \ifthenelse{\equal{#1}{R}}{%
+%        \item[\textbf{Roman symbols}]}{%
+%        \ifthenelse{\equal{#1}{G}}{%
+%          \item[\textbf{Greek symbols}]}{%
+%          \ifthenelse{\equal{#1}{S}}{%
+%            \item[\textbf{Subscripts}]}{%
+%            \ifthenelse{\equal{#1}{T}}{%
+%              \item[\textbf{Superscripts}]}{}}}}}}%
+%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% PACKAGES E FUN\c{C}\~{O}ES de TRABALHO --- APAGAR QUANDO SUBMETER
+
+%\usepackage[pdftex,usenames,dvipsnames*,svgnames,rgb]{xcolor} % Enabling colors by their 'svgnames'
+\usepackage[color=blue!20!white,linecolor=red,figcolor=white,textwidth=1.9cm,colorinlistoftodos,%
+textsize=scriptsize]{todonotes}		% op\c{c}\~{o}es:	disable,
+
+\newcommand{\fazer}[1]{\colorbox{yellow}{\textbf{#1}}}	% yellow box
+
+%\usepackage{showkeys}				% op\c{c}\~{o}es: 	[notref,notcite]
+
+
+\usepackage{lineno}
+%\linenumbers	% op\c{c}\~{o}es: \linenumbers 	ou \begin{linenumbers}... \end{linenumbers}
+\modulolinenumbers[5]
+
+\usepackage[hyperfootnotes=false, hyperfigures=true,colorlinks=false, pdfborder={0 0 0}]{hyperref}			% op\c{c}\~{o}es a confirmar, apenas as copiei, conv\'{e}m hyperref ser das \'{u}ltimas a carregar, com excep\c{c}\~{o}es
+%\renewcommand{\sectionautorefname}{\S}	% para usar \autoref em vez de \ref e n\~{a}o aparecer Se\c{c}\~{a}o
+%\renewcommand{\subsectionautorefname}{\S}	% para usar \autoref em vez de \ref e n\~{a}o aparecer Se\c{c}\~{a}o
+%\renewcommand{\subsubsectionautorefname}{\S}	% para usar \autoref em vez de \ref e n\~{a}o aparecer Se\c{c}\~{a}o
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% FIM DE PACKAGES AND COMMANDS INCLUDED BY AUTHORS
+
+\usepackage[capitalise,sort&compress]{cleveref}		% must be loaded after hyperref
+
+
+\graphicspath{{./figs/}}
+
+
+\journal{\CourseNamePt, \YearDegree}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%% Elsevier bibliography styles
+%%%%%%%%%%%%%%%%%%%%%%%
+%% To change the style, put a % in front of the second line of the current style and
+%% remove the % from the second line of the style you would like to use.
+%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Numbered
+%\bibliographystyle{model1-num-names}
+
+%% Numbered without titles
+%\bibliographystyle{model1a-num-names}
+
+%% Harvard
+%\bibliographystyle{model2-names.bst}\biboptions{authoryear}
+
+%% Vancouver numbered
+%\usepackage{numcompress}\bibliographystyle{model3-num-names}
+
+%% Vancouver name/year
+%\usepackage{numcompress}\bibliographystyle{model4-names}\biboptions{authoryear}
+
+%% APA style
+%\bibliographystyle{model5-names}\biboptions{authoryear}
+
+%% AMA style
+%\usepackage{numcompress}\bibliographystyle{model6-num-names}
+
+%% `Elsevier LaTeX' style
+\bibliographystyle{elsarticle-num}
+%%%%%%%%%%%%%%%%%%%%%%%
+
+% Fix problem with appendix names; see https://tex.stackexchange.com/questions/26333/elsarticle-appendix-and-a-table-of-contents
+\renewcommand*{\appendixname}{}
+
+\begin{document}
+
+\begin{frontmatter}
+
+\title{{\Large \CourseNamePt \tnoteref{mytitlenote} (\YearDegree )}\\
+{\large Academic Year \AcademYear}\vspace{.5cm}\\
+Project Report - Electric Propulsion
+}
+\tnotetext[mytitlenote]{\CourseNameEng .}
+
+
+%% Authors in the order of appearance on Fenix page
+\author[LEA-ist-address]{Simone Binotto ist116780\corref{group}}
+\cortext[group]{Group \#\num{5}}
+\ead{simone.binotto.2@studenti.unipd.it} 
+
+\author[LEA-ist-address]{Marco Azevedo ist88166}
+\ead{marco.azevedo@tecnico.ulisboa.pt}
+
+\author[LEA-ist-address]{Philippe Quichaud ist119295}
+\ead{philippe.quichaud@tecnico.ulisboa.pt}
+
+\author[LEA-ist-address]{Corentin Ouisse ist119278}
+\ead{corentin.ouisse@tecnico.ulisboa.pt}
+
+\author[LEA-ist-address]{Andr\'{e} Matos ist106376}
+\ead{andre.f.matos@tecnico.ulisboa.pt}
+
+\author[LEA-ist-address]{Th\'{e}o Demesy ist119525}
+\ead{theo.demesy@tecnico.ulisboa.pt}
+
+\address[LEA-ist-address]{LEAer, Instituto Superior T\'{e}cnico, Universidade de Lisboa, Av. Rovisco Pais, 1049-001 Lisboa, Portugal}
+
+
+\begin{abstract}
+	This document is the report of Group \#\num{5} for the project in \emph{\CourseNamePt} (\CourseNameEng) in the Academic Year \AcademYear. The authors worked on subject 11, Electric propulsion. This is \textcolor{blue}{Version \VersionDoc} of this document.
+\end{abstract}
+
+\begin{keyword}
+propulsion \sep electric \sep space hardware \sep performances
+%\MSC[2010] 00-01\sep  99-00
+\end{keyword}
+
+
+
+\end{frontmatter}
+
+%\linenumbers
+
+%%% NOMENCLATURA - VER COMENT SE FOR NECESS\'{A}RIA, SE N\~{A}O, APAGAR NA VERS\~{A}O A SUBMETER
+
+%	Nas regras da Acta Astronautica refere que a nomenclatura deve estar no fim do artigo, ap\'{o}s os ap\^{e}ndices, e que deve existir um rodap\'{e} na p\'{a}gina onde aparecem pela primeira vez a indicar "See Nomenclature at end of paper."
+%\input{nomenc}
+
+\setcounter{tocdepth}{2}
+\tableofcontents
+
+\newpage
+
+\input{tex/sections/introduction.tex}
+\input{tex/sections/resistojets.tex}
+\input{tex/sections/arcjets.tex}
+\input{tex/sections/ion_thrusters.tex}
+\input{tex/sections/hall_thrusters.tex}
+\input{tex/sections/ppt.tex}
+\input{tex/sections/conclusion.tex}
+
+\addcontentsline{toc}{section}{\emph{References}}
+\section*{References}
+
+%%% Para usar bibtex:
+\bibliography{tex/LE}
+
+\appendix
+
+\input{tex/apendice.tex}
+
+
+\end{document}
+

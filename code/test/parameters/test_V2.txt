@@ -1,0 +1,33 @@
+# ---->key parameters
+
+deltav: 4.5
+payload_mass: 1000.0
+
+# ---->Mission constraints
+
+max_power: 5000.0
+max_duration: 10000.0
+
+# type of Propellant
+
+propellant: 0
+
+# ---->default thruster efficiency parameters
+
+eta_m: 0.90
+eta_e: 0.85
+xi: 0.97
+
+# ---->design parameters for beam
+
+beam_voltage_min: 800
+beam_voltage_max: 2500
+beam_voltage_step: 10
+
+beam_current_min: 0.5
+beam_current_max: 4.0
+beam_current_step: 0.1
+
+# objetive for calculation
+
+objective: 0

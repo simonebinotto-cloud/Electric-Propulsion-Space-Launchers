@@ -1,0 +1,33 @@
+#fine version of full__parameters to show the effect of smaller steps on que sensitivy analysis quality output.
+
+# Mission
+deltav: 5.0
+payload_mass: 100
+
+# Constraints
+max_power: 3000
+max_duration: 4000
+
+# Propellant (Xenon)
+propellant: 0
+
+# Efficiency assumptions
+eta_m: 0.90
+eta_e: 0.85
+xi: 0.97
+
+# Design sweep
+beam_voltage_min: 800
+beam_voltage_max: 2000
+
+#allowed for more steps here to increase solving resolution
+beam_voltage_step: 5
+
+beam_current_min: 0.5
+beam_current_max: 3.0
+
+#allowed for more steps here to increase solving resolution
+beam_current_step: 0.01 
+
+# Objective: minimise trip time
+objective: 1
